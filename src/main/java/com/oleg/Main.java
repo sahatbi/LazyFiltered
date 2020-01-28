@@ -63,31 +63,21 @@ public class Main {
         promo.addSubcategory(bags);
 
 
-        long start = currentTimeMillis();
         StringWriter stringWriter = new StringWriter();
         objectMapper.writeValue(stringWriter, main);
         System.out.println(stringWriter.toString());
-        long finish = currentTimeMillis();
-        System.out.println(finish - start);
 
-        start = currentTimeMillis();
         Set<String> existing = new HashSet<>(Arrays.asList("0", "2", "2.1", "2.1.2", "2.2", "3", "3.1", "3.2", "3.2.1", "4", "4.1"));
         LazyFilteredCategoryData lazyFiltered = new LazyFilteredCategoryData(main, existing);
         stringWriter = new StringWriter();
         objectMapper.writeValue(stringWriter, lazyFiltered);
         System.out.println(stringWriter.toString());
-        finish = currentTimeMillis();
-        System.out.println(finish - start);
 
-
-        start = currentTimeMillis();
         existing = new HashSet<>(Arrays.asList("0", "2", "2.1", "2.1.1", "2.1.2", "2.2", "2.2.1", "3", "3.1", "3.2", "3.2.1", "4", "4.1", "4.2"));
         lazyFiltered = new LazyFilteredCategoryData(main, existing);
         stringWriter = new StringWriter();
         objectMapper.writeValue(stringWriter, lazyFiltered);
         System.out.println(stringWriter.toString());
-        finish = currentTimeMillis();
-        System.out.println(finish - start);
 
         existing = new HashSet<>(Arrays.asList("0", "2", "2.1", "2.1.1", "2.1.2", "2.2"));
         lazyFiltered = new LazyFilteredCategoryData(main, existing);
